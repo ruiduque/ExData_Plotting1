@@ -33,12 +33,13 @@ power_data <- power_data_total %>%
 # Remove the complete dataset and retain only the two days required for analysis
 rm(power_data_total)
 
-# Plot the line graph for Global Active Power by date_time
+# Plot 3 line graphs for Energy sub metering 1,2 & 3 by date_time
 png(file = "plot3.png", width = 480, height = 480)
-
-with(power_data, plot(Date_Time, Sub_metering_1, type = "l", xlab = "", ylab = "Energy sub metering"))
-with(power_data, points(Date_Time, Sub_metering_2, type = "l", col = "red"))
-with(power_data, points(Date_Time, Sub_metering_3, type = "l", col = "blue"))
-legend("topright", pch = 1, col = c("black","red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+with(power_data, { 
+        plot(Date_Time, Sub_metering_1, type = "l", xlab = "", ylab = "Energy sub metering")
+        points(Date_Time, Sub_metering_2, type = "l", col = "red")
+        points(Date_Time, Sub_metering_3, type = "l", col = "blue")
+})
+legend("topright", lty=c(1,1), col = c("black","red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 dev.off()
 

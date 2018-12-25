@@ -19,7 +19,6 @@ if(!file.exists("./data")){
         setwd(main_dir)
 }
 
-
 power_data_total <- read_csv2("data/household_power_consumption.txt")
 
 # Convert date and retain only records for 01-02-2007 & 02-02-2007
